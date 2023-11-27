@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  
+  <style>
+    /* Set up some basic styles for the page */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Style the navbar */
+    .navbar {
+      background-color: #333;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .navbar a {
+      float: left;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .navbar-right {
+      float: right;
+    }
+
+    /* Style the dynamically generated content */
+    .item {
+      border: 1px solid black;
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .item p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .show {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .show-item {
+      border: 1px solid gray;
+      margin: 10px 10px 0 0;
+      padding: 5px;
+      flex: 1 1 calc(33% - 10px);
+    }
+  </style>
+</head>
+<body>
+  <!-- The navbar -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <a href="/admin_dash">Home</a>
+      <a href="/create_venue">Create Venue</a>
+      <a href="/create_show">Create Show</a>
+    </div>
+    <div class="navbar-right">
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+  <!DOCTYPE html>
+<html>
+<head>
+	<title>Centered Form</title>
+	<style>
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+		input[type=text], input[type=number] {
+			margin: 10px;
+			padding: 10px;
+			width: 300px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+			font-size: 16px;
+			text-align: center;
+		}
+		input[type=submit] {
+			margin: 10px;
+			padding: 10px;
+			width: 200px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+			font-size: 16px;
+			background-color: #333;
+			color: #FFFFFF;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<form action = '/add_show/{{venue_id}}' method="post">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required>
+
+		<label for="rating">Rating:</label>
+		<input type="number" id="rating" name="rating" max="5" required >
+
+		<label for="timing">Timing:</label>
+		<input type="text" id="timing" name="timing" required>
+
+        <label for="tag">Tag:</label>
+		<input type="text" id="tag" name="tag" required>
+
+        <label for="price">Price:</label>
+		<input type="number" id="price" name="price" required>
+
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>

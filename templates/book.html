@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Form</title>
+    <style>
+        /* Center the boxes */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        /* Style the boxes */
+        .box {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            height: 50px;
+            width: 400px;
+        }
+
+        .box input[type="number"] {
+            width: 100%;
+            font-size: 15px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>{{book_data['show_name']}} &nbsp;&nbsp;&nbsp;&nbsp; {{book_data['time']}}&nbsp;&nbsp;&nbsp;&nbsp;Available Seats: {{book_data['available_seats']}}</h2>
+        <div class="box">
+            <form action="/book/{{user_id}}/{{vs_id}}" method="post">
+            <label for="number-input">No. of Tickets:</label>
+             <input type="number" id="number-input" name="number-input" max="{{book_data['available_seats']}}" />
+            <input type="submit" value="Book">
+            </form>
+            
+            
+        </div>
+        <div class="box">
+            <p>Price: </p>
+            <p id="static-value">{{book_data['show_price']}}</p>
+        </div>
+        <div class="box">
+            <p>Total Price:</p>
+            <p id="multiple-value"></p>
+        </div>
+        
+    </div>
+
+    <script>
+        // Get references to the input and output elements
+        const numberInput = document.getElementById("number-input");
+        const staticValue = document.getElementById("static-value");
+        const multipleValue = document.getElementById("multiple-value");
+
+        // Calculate the multiple when the input value changes
+        numberInput.addEventListener("input", () => {
+            const num = Number(numberInput.value);
+            const staticNum = Number(staticValue.textContent);
+            const multiple = num * staticNum;
+            multipleValue.textContent = String(multiple);
+        });
+    </script>
+</body>
+</html>
